@@ -48,6 +48,7 @@ class _AppState extends State<App> {
           backgroundColor: Colors.deepPurple,
         ),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

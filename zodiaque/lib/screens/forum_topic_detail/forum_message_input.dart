@@ -10,26 +10,40 @@ class ForumMessageInput extends StatelessWidget {
   void _attemptSubmit() {
     String text = textFieldController.text;
     if (text.isEmpty) return;
+    DateTime date = DateTime.now();
+    text = "[${date.hour}:${date.minute}] $username:\n$text";
     mqttClientManager.publishMessage(_topic, text);
     textFieldController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: TextField(
-            controller: textFieldController,
-            onEditingComplete: _attemptSubmit,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: "Enter a message...",
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.all(15.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              controller: textFieldController,
+              onEditingComplete: _attemptSubmit,
+              decoration: const InputDecoration(
+                enabledBorder: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.purple)),
+                floatingLabelStyle: TextStyle(color: Colors.purple),
+                labelText: "Enter a message...",
+              ),
             ),
           ),
-        ),
-        IconButton(onPressed: _attemptSubmit, icon: const Icon(Icons.send))
-      ],
+          IconButton(
+              onPressed: _attemptSubmit,
+              icon: const Icon(
+                Icons.send,
+                color: Colors.purple,
+              ))
+        ],
+      ),
     );
   }
 }

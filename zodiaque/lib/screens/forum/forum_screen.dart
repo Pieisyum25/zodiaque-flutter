@@ -8,17 +8,20 @@ class ForumScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ...mqttChangeNotifier.forumPosts.keys.map((topic) => GestureDetector(
-              child: ForumTopic(topic),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ForumTopicDetailScreen(topic),
-                ));
-              },
-            ))
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ListView(
+        children: [
+          ...mqttChangeNotifier.forumPosts.keys.map((topic) => GestureDetector(
+                child: ForumTopic(topic),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ForumTopicDetailScreen(topic),
+                  ));
+                },
+              ))
+        ],
+      ),
     );
   }
 }

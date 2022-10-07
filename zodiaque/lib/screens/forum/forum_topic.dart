@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:zodiaque/logic/mqtt_change_notifier.dart';
 
 class ForumTopic extends StatefulWidget {
@@ -16,13 +17,23 @@ class _ForumTopicState extends State<ForumTopic> {
     return AnimatedBuilder(
       animation: mqttChangeNotifier,
       builder: (context, child) {
-        return Column(
-          children: [
-            Text(widget._topic),
-            mqttChangeNotifier.forumPosts[widget._topic]!.isNotEmpty
-                ? Text(mqttChangeNotifier.forumPosts[widget._topic]!.last)
-                : const Text(""),
-          ],
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 5.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                widget._topic,
+                style: const TextStyle(fontSize: 18.0),
+              ),
+              Text(
+                mqttChangeNotifier.forumPosts[widget._topic]!.isNotEmpty
+                    ? mqttChangeNotifier.forumPosts[widget._topic]!.last
+                    : "No Messages",
+                style: const TextStyle(color: Colors.black54),
+              ),
+            ],
+          ),
         );
       },
     );

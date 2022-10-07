@@ -18,7 +18,17 @@ class SignDetailScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Text(sign.name),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            child: Center(
+                child: Text(
+              sign.name,
+              style: const TextStyle(
+                  color: Colors.purple,
+                  fontSize: 30.0,
+                  decoration: TextDecoration.underline),
+            )),
+          ),
           ...List.generate(horoscopes.length, (i) => i)
               .map((i) => HoroscopeDetail(i, _signIndex))
               .toList()

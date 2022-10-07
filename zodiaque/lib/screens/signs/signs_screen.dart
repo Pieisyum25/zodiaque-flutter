@@ -8,21 +8,36 @@ class SignsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageView(
-      controller: PageController(initialPage: 0),
-      scrollDirection: Axis.vertical,
-      children: [
-        ...List.generate(signs.length, (i) => i)
-            .map((i) => GestureDetector(
-                  child: SignPage(i),
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SignDetailScreen(i),
-                    ));
-                  },
-                ))
-            .toList()
-      ],
+    return Container(
+      color: const Color.fromARGB(255, 27, 0, 32),
+      child: ListView(
+        children: [
+          ...List.generate(signs.length, (i) => i)
+              .map((i) => Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        LimitedBox(
+                          maxWidth: 200,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(25.0),
+                            child: GestureDetector(
+                              child: SignPage(i),
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => SignDetailScreen(i),
+                                ));
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ))
+              .toList()
+        ],
+      ),
     );
   }
 }

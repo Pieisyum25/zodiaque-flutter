@@ -30,12 +30,28 @@ class _HoroscopeDetailState extends State<HoroscopeDetail> {
   Widget build(BuildContext context) {
     final horoscope = horoscopes[widget._horoscopeIndex];
 
-    return Column(
-      children: [
-        Text(horoscope.siteName),
-        Text(horoscope.siteDescription),
-        isLoading ? const CircularProgressIndicator() : Text(horoscopeData),
-      ],
+    return Container(
+      padding: const EdgeInsets.fromLTRB(30, 5, 30, 10),
+      child: Column(
+        children: [
+          Text(
+            horoscope.siteName,
+            style: const TextStyle(fontSize: 18.0, color: Colors.purple),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
+            child: Text(
+              horoscope.siteDescription,
+              style: const TextStyle(color: Colors.purpleAccent),
+            ),
+          ),
+          isLoading
+              ? const CircularProgressIndicator(
+                  color: Colors.purple,
+                )
+              : Text(horoscopeData),
+        ],
+      ),
     );
   }
 }

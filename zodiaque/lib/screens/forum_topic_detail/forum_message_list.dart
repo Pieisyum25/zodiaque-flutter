@@ -17,11 +17,14 @@ class _ForumMessageListState extends State<ForumMessageList> {
     return AnimatedBuilder(
         animation: mqttChangeNotifier,
         builder: (context, child) {
-          return ListView(
-            children: [
-              ...mqttChangeNotifier.forumPosts[widget._topic]!
-                  .map((msg) => ForumMessage(msg)),
-            ],
+          return Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ListView(
+              children: [
+                ...mqttChangeNotifier.forumPosts[widget._topic]!
+                    .map((msg) => ForumMessage(msg)),
+              ],
+            ),
           );
         });
   }

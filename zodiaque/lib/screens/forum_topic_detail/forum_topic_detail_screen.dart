@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zodiaque/logic/mqtt_change_notifier.dart';
-import 'package:zodiaque/screens/forum_topic_detail/forum_message.dart';
 import 'package:zodiaque/screens/forum_topic_detail/forum_message_input.dart';
 import 'package:zodiaque/screens/forum_topic_detail/forum_message_list.dart';
 
@@ -13,13 +11,16 @@ class ForumTopicDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_topic),
+        title: Text("$_topic Forum"),
       ),
-      body: Column(
-        children: [
-          Expanded(child: ForumMessageList(_topic)),
-          ForumMessageInput(_topic),
-        ],
+      body: Container(
+        color: const Color.fromARGB(255, 27, 0, 32),
+        child: Column(
+          children: [
+            Expanded(child: ForumMessageList(_topic)),
+            ForumMessageInput(_topic),
+          ],
+        ),
       ),
     );
   }

@@ -2,7 +2,8 @@ import 'dart:io';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-MQTTClientManager mqttClientManager = MQTTClientManager();
+final MQTTClientManager mqttClientManager = MQTTClientManager();
+String username = "Anonymous";
 
 class MQTTClientManager {
   MqttServerClient client = MqttServerClient.withPort(
