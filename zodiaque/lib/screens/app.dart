@@ -4,7 +4,7 @@ import 'package:zodiaque/logic/mqtt_change_notifier.dart';
 import 'package:zodiaque/models/mqtt_client.dart';
 import 'package:zodiaque/models/sign.dart';
 import 'package:zodiaque/models/signs.dart';
-import 'package:zodiaque/tabs.dart';
+import 'package:zodiaque/screens/tabs.dart';
 
 class App extends StatefulWidget {
   const App({super.key});

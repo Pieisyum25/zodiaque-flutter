@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zodiaque/screens/forum/forum_screen.dart';
 import 'package:zodiaque/screens/journal/journal_screen.dart';
+import 'package:zodiaque/screens/settings_screen.dart';
 import 'package:zodiaque/screens/signs/signs_screen.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -24,11 +25,24 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  void _onSettingsPressed() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => SettingsScreen(),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Zodiaque'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: _onSettingsPressed,
+            tooltip: 'Settings',
+          ),
+        ],
       ),
       body: Center(
         child: _screens.elementAt(_selectedIndex),

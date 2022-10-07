@@ -11,7 +11,9 @@ class ForumMessageInput extends StatelessWidget {
     String text = textFieldController.text;
     if (text.isEmpty) return;
     DateTime date = DateTime.now();
-    text = "[${date.hour}:${date.minute}] $username:\n$text";
+    String user = anonymous ? "Anonymous" : username;
+    text =
+        "[${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}] $user:\n$text";
     mqttClientManager.publishMessage(_topic, text);
     textFieldController.clear();
   }

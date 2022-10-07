@@ -9,7 +9,14 @@ class SignsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 27, 0, 32),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 27, 0, 32),
+        image: DecorationImage(
+            image: const AssetImage("assets/images/zodiac_circle.png"),
+            colorFilter:
+                ColorFilter.mode(Colors.pink.shade900, BlendMode.srcATop),
+            fit: BoxFit.scaleDown),
+      ),
       child: ListView(
         children: [
           ...List.generate(signs.length, (i) => i)
