@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zodiaque/logic/mqtt_change_notifier.dart';
 
+/// ForumTopic describes a summary of an individual topic to be shown on the
+/// ForumScreen. It displays the topic name and the most recent message.
 class ForumTopic extends StatefulWidget {
   const ForumTopic(this._topic, {super.key});
 

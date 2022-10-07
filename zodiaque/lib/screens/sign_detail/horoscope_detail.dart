@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:zodiaque/logic/web_scraping.dart';
 import 'package:zodiaque/models/horoscopes.dart';
 
+/// HoroscopeDetail describes the horoscope data for an individual horoscope
+/// webpage, retrieved via webscraping. This is shown in a list on the
+/// SignDetailScreen. While the data is being retrieved/loaded, a circular
+/// progress indicator will be shown.
 class HoroscopeDetail extends StatefulWidget {
   const HoroscopeDetail(this._horoscopeIndex, this._signIndex, {super.key});
 

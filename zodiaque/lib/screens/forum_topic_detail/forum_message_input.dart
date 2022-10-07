@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:zodiaque/models/mqtt_client.dart';
 
+/// ForumMessageInput describes a row at the bottom of the ForumTopicDetailScreen
+/// containing a text field for entering a message and a button for sending it.
 class ForumMessageInput extends StatelessWidget {
   ForumMessageInput(this._topic, {super.key});
 
   final String _topic;
   final textFieldController = TextEditingController();
 
+  /// Attempt to submit the currently entered message.
+  /// Fails if the message is blank.
+  /// If it succeeds, it appends a timestamp and username to the start of
+  /// the message.
   void _attemptSubmit() {
     String text = textFieldController.text;
     if (text.isEmpty) return;

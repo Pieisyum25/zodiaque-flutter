@@ -4,6 +4,9 @@ import 'package:zodiaque/screens/journal/journal_screen.dart';
 import 'package:zodiaque/screens/settings_screen.dart';
 import 'package:zodiaque/screens/signs/signs_screen.dart';
 
+/// TabsScreen is a screen with a bottom tab bar for navigating between the
+/// three main sections of the app: the SignsScreen, the ForumScreen, and the
+/// JournalScreen.
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
 
@@ -19,15 +22,17 @@ class _TabsScreenState extends State<TabsScreen> {
     ForumScreen(),
   ];
 
+  // Sets the selected tab, changing screen if it is different.
   void _onTabTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
+  // Navigates to the SettingsScreen whenever the settings icon is pressed.
   void _onSettingsPressed() {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => SettingsScreen(),
+      builder: (context) => const SettingsScreen(),
     ));
   }
 

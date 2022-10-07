@@ -6,6 +6,10 @@ import 'package:zodiaque/models/entry.dart';
 import 'package:zodiaque/screens/journal/journal_entry.dart';
 import 'package:zodiaque/screens/journal_entry_detail/journal_entry_detail.dart';
 
+/// JournalScreen is a screen showing a list of all the user's personal journal
+/// Entries. Each Entry is stored in a local database (using Hive), and the
+/// user can easily select an Entry by tapping on it or add an Entry by
+/// pressing the text button at the bottom.
 class JournalScreen extends StatefulWidget {
   const JournalScreen({super.key});
 

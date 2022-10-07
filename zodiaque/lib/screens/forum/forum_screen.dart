@@ -3,6 +3,10 @@ import 'package:zodiaque/logic/mqtt_change_notifier.dart';
 import 'package:zodiaque/screens/forum/forum_topic.dart';
 import 'package:zodiaque/screens/forum_topic_detail/forum_topic_detail_screen.dart';
 
+/// ForumScreen is a screen showing a list of forum topics available to the user
+/// that they can post on, along with each forum's most recent message.
+/// There is one forum for each zodiac sign, along with a general forum.
+/// An MQTT publish/subscribe broker server is used to manage this.
 class ForumScreen extends StatelessWidget {
   const ForumScreen({super.key});
 

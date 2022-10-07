@@ -1,5 +1,6 @@
 import 'package:zodiaque/models/sign.dart';
 
+/// A list of all zodiac signs with their start and end dates.
 const signs = [
   Sign("Aries", 21, 3, 19, 4),
   Sign("Taurus", 20, 4, 20, 5),

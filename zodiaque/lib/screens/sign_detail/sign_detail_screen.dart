@@ -3,6 +3,9 @@ import 'package:zodiaque/models/horoscopes.dart';
 import 'package:zodiaque/models/signs.dart';
 import 'package:zodiaque/screens/sign_detail/horoscope_detail.dart';
 
+/// SignDetailScreen is a screen showing the current day's horoscopes for a
+/// particular zodiac sign, where each horoscope is web scraped from a webpage.
+/// These horoscopes are shown in a list.
 class SignDetailScreen extends StatelessWidget {
   const SignDetailScreen(this._signIndex, {super.key});
 

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:zodiaque/logic/db_change_notifier.dart';
 import 'package:zodiaque/models/entry.dart';
 
+/// JournalEntryDetailScreen is a screen that allows users to view and edit
+/// the details of a journal Entry via text fields. If a new Entry is not
+/// being created, the user can also delete the Entry. Saving and deleting are
+/// done via text buttons at the bottom of the screen.
 class JournalEntryDetailScreen extends StatelessWidget {
   JournalEntryDetailScreen(this._entry, {this.index = -1, super.key});
 

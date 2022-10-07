@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zodiaque/models/signs.dart';
 
+/// SignPage represents a single zodiac sign, shown as a white card on the
+/// SignsScreen. It displays the sign's symbol, its name, and its date period.
 class SignPage extends StatelessWidget {
   const SignPage(this._signIndex, {super.key});
 

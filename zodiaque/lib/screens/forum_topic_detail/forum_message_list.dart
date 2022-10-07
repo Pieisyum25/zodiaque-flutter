@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:zodiaque/logic/mqtt_change_notifier.dart';
 import 'package:zodiaque/screens/forum_topic_detail/forum_message.dart';
 
+/// ForumMessageList represents the list of messages shown on the ForumTopicDetailScreen.
+/// This list updates every time a new message is posted in that topic.
 class ForumMessageList extends StatefulWidget {
   const ForumMessageList(this._topic, {super.key});
 

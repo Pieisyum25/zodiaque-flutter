@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// ForumMessage represents a message received within the ForumMessageList.
 class ForumMessage extends StatelessWidget {
   const ForumMessage(this._message, {super.key});
 

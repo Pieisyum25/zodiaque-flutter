@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zodiaque/models/mqtt_client.dart';
 
+/// SettingsScreen is a screen allowing the user to change their username
+/// shown on the forums, or switch to anonymous mode.
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -11,12 +13,14 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   final usernameController = TextEditingController(text: username);
 
+  // Toggles whether the user is anonymous on the forums or not.
   void _setAnonymous(value) {
     setState(() {
       anonymous = value;
     });
   }
 
+  // Sets the user's username shown on forum posts.
   void _setUsername(text) {
     if (text.isEmpty) return;
     username = text;

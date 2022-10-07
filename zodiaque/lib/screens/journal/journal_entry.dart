@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:zodiaque/models/entry.dart';
 
+/// JournalEntry represents an Entry as a list item for the list in
+/// JournalScreen. Each JournalEntry contains all the details of the Entry,
+/// including its DateTime of creation, title, and body text.
 class JournalEntry extends StatelessWidget {
   const JournalEntry(this._entry, {super.key});
 

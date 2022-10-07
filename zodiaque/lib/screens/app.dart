@@ -10,6 +10,9 @@ import 'package:zodiaque/models/signs.dart';
 import 'package:zodiaque/screens/tabs.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
+/// App is the main widget of the application, responsible for initialising
+/// the MQTT client for the forum part of the app, and the local database
+/// (using Hive) for the journal part of the app.
 class App extends StatefulWidget {
   const App({super.key});
 
@@ -23,11 +26,14 @@ class _AppState extends State<App> {
     // Init MQTT:
     mqttChangeNotifier.initPosts();
     mqttClientManager.connect().then((value) {
+      // Subscribe to all topics:
       mqttClientManager.subscribe("General");
       for (Sign sign in signs) {
         mqttClientManager.subscribe(sign.name);
       }
 
+      // Listen for posts from each topic and add them to the MQTTChangeNotifier
+      // when received:
       mqttClientManager
           .getMessagesStream()!
           .listen((List<MqttReceivedMessage<MqttMessage?>>? c) {
@@ -40,12 +46,12 @@ class _AppState extends State<App> {
       });
     });
 
-    // Init Local Database:
+    // Init Local Database (uses Hive):
     path_provider.getApplicationDocumentsDirectory().then((value) {
+      // Retrieve the Box of Entries from the application documents directory:
       Hive.initFlutter(value.path).then((value) {
         Hive.registerAdapter(EntryAdapter());
         Hive.openBox<Entry>("journalBox").then((value) {
-          print(value.toString());
           dbChangeNotifier.initJournalBox(value);
         });
       });
