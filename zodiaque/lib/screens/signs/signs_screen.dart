@@ -3,8 +3,8 @@ import 'package:zodiaque/models/signs.dart';
 import 'package:zodiaque/screens/sign_detail/sign_detail_screen.dart';
 import 'package:zodiaque/screens/signs/sign_page.dart';
 
-class Signs extends StatelessWidget {
-  const Signs({super.key});
+class SignsScreen extends StatelessWidget {
+  const SignsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
