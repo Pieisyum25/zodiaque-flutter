@@ -8,23 +8,21 @@ class SignsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: PageController(initialPage: 0),
-        scrollDirection: Axis.vertical,
-        children: [
-          ...List.generate(signs.length, (i) => i)
-              .map((i) => GestureDetector(
-                    child: SignPage(i),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SignDetailScreen(i),
-                      ));
-                    },
-                  ))
-              .toList()
-        ],
-      ),
+    return PageView(
+      controller: PageController(initialPage: 0),
+      scrollDirection: Axis.vertical,
+      children: [
+        ...List.generate(signs.length, (i) => i)
+            .map((i) => GestureDetector(
+                  child: SignPage(i),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => SignDetailScreen(i),
+                    ));
+                  },
+                ))
+            .toList()
+      ],
     );
   }
 }
