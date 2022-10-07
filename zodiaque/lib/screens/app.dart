@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mqtt_client/mqtt_client.dart';
+import 'package:zodiaque/logic/db_change_notifier.dart';
 import 'package:zodiaque/logic/mqtt_change_notifier.dart';
+import 'package:zodiaque/models/entry.dart';
 import 'package:zodiaque/models/mqtt_client.dart';
 import 'package:zodiaque/models/sign.dart';
 import 'package:zodiaque/models/signs.dart';
 import 'package:zodiaque/screens/tabs.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -16,6 +20,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   void initState() {
+    // Init MQTT:
     mqttChangeNotifier.initPosts();
     mqttClientManager.connect().then((value) {
       mqttClientManager.subscribe("General");
@@ -32,6 +37,17 @@ class _AppState extends State<App> {
         print(
             'MQTTClient::Message received on topic: <${c[0].topic}> is $pt\n');
         mqttChangeNotifier.addPost(c[0].topic, pt);
+      });
+    });
+
+    // Init Local Database:
+    path_provider.getApplicationDocumentsDirectory().then((value) {
+      Hive.initFlutter(value.path).then((value) {
+        Hive.registerAdapter(EntryAdapter());
+        Hive.openBox<Entry>("journalBox").then((value) {
+          print(value.toString());
+          dbChangeNotifier.initJournalBox(value);
+        });
       });
     });
 

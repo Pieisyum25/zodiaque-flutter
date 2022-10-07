@@ -1,5 +1,7 @@
 import 'package:zodiaque/models/horoscope.dart';
 
+/// List of websites that can be web scraped for their horoscope data, with
+/// the exact webpage url and text element location specified.
 final horoscopes = [
   Horoscope(
     "dailyhoroscope.com",
