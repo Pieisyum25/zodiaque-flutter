@@ -22,7 +22,7 @@ Technologies:
 - Uses a lightweight Hive database for storing local journal data.
 
 How to run:
-- Clone the repository with "git clone <repo url>".
+- Clone the repository with "git clone (repo url)".
 - Inside the folder, enter "flutter pub get" to download all the required packages (requires flutter cli).
 - Once that is done, enter "flutter run" to start the application.
 - Finally, to open the app on your desired platform, follow the instructions that appear.
